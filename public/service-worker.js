@@ -1,6 +1,6 @@
 const SHARE_TARGET_PATHS = new Set(["/share-target", "/src/share-target"])
 const SHARE_TARGET_REDIRECT_URL = "/?share-target=1"
-const OFFLINE_CACHE = "pwabuilder-page"
+const OFFLINE_CACHE = "pwabuilder-page-v2"
 const OFFLINE_URL = "/offline.html"
 const SHARE_DB_NAME = "tglfs-share-target"
 const SHARE_DB_VERSION = 2
@@ -142,7 +142,17 @@ self.addEventListener("install", (event) => {
 })
 
 self.addEventListener("activate", (event) => {
-    event.waitUntil(self.clients.claim())
+    event.waitUntil(
+        (async () => {
+            const cacheKeys = await caches.keys()
+            await Promise.all(
+                cacheKeys
+                    .filter((key) => key.startsWith("pwabuilder-page") && key !== OFFLINE_CACHE)
+                    .map((key) => caches.delete(key)),
+            )
+            await self.clients.claim()
+        })(),
+    )
 })
 
 self.addEventListener("fetch", (event) => {
