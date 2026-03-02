@@ -1,0 +1,6 @@
+*.session
+*.session-journal
+node_modules/
+dist/
+*.env
+.parcel-cache/
