@@ -1,14 +1,14 @@
 {
-  "short_name": "TGLFS",
-  "name": "Telegram Large File Storage",
+  "short_name": "Morsalen",
+  "name": "Morsalen Storage",
   "icons": [
     {
-        "src": "/icons/TGLFS logo 192.png",
+        "src": "/icons/morsalen-storage-192.png",
         "type": "image/png",
         "sizes": "192x192"
     },
     {
-        "src": "/icons/TGLFS logo 512.png",
+        "src": "/icons/morsalen-storage-512.png",
         "type": "image/png",
         "sizes": "512x512"
     }
@@ -20,7 +20,7 @@
   "display": "standalone",
   "scope": "/",
   "theme_color": "#24a1de",
-  "description": "Telegram large file storage",
+  "description": "Morsalen Storage",
   "dir": "auto",
   "lang": "en",
   "categories": [
